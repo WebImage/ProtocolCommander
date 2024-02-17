@@ -1,6 +1,7 @@
 {
     "name": "webimage/protocol-commander",
     "description": "Interface classes for building a message protocol similar to FTP that can be used with WebImage/ServerTalk",
+    "version": "1.0.0",
     "type": "library",
     "autoload": {
         "psr-4": {
