@@ -38,13 +38,13 @@ abstract class AbstractCommandMessageHandler implements CommandMessageHandlerInt
 	}
 
 	/**
-	 * @param  $message
-	 * @param ConnectionInterface $connection
 	 * @param Command $command
+	 * @param ConnectionInterface $connection
+	 * @param MessageInterface $message
 	 */
 	public function handleCommand(Command $command, ConnectionInterface $connection, MessageInterface $message)
 	{
-		$this->executeCommand($message, $connection, $command);
+		$this->executeCommand($command, $connection, $message);
 
 		$ctx = $connection->getContext();
 		$ctx->set('lastCommand', $command->getName());
@@ -63,5 +63,5 @@ abstract class AbstractCommandMessageHandler implements CommandMessageHandlerInt
 		return array_pad(explode(' ', $str, $num), $num, '');
 	}
 
-	abstract protected function executeCommand(MessageInterface $message, ConnectionInterface $connection, Command $command);
+	abstract protected function executeCommand(Command $command, ConnectionInterface $connection, MessageInterface $message);
 }

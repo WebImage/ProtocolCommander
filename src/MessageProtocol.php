@@ -32,7 +32,7 @@ class MessageProtocol {
 			return false;
 		}
 
-		$handler->handleCommand($message, $connection, $command);
+		$handler->handleCommand($command, $connection, $message);
 
 		return true;
 	}
