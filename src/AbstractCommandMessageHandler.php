@@ -42,13 +42,13 @@ abstract class AbstractCommandMessageHandler implements CommandMessageHandlerInt
 	 * @param ConnectionInterface $connection
 	 * @param Command $command
 	 */
-	public function handleCommand(MessageInterface $message, ConnectionInterface $connection, Command $command)
+	public function handleCommand(Command $command, ConnectionInterface $connection, MessageInterface $message)
 	{
+		$this->executeCommand($message, $connection, $command);
+
 		$ctx = $connection->getContext();
 		$ctx->set('lastCommand', $command->getName());
 		$ctx->set('lastInteraction', time());
-
-		$this->executeCommand($message, $connection, $command);
 	}
 
 	/**
