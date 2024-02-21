@@ -14,5 +14,13 @@
             "email": "rjones@corporatewebimage.com"
         }
     ],
-    "require": {}
+    "require": {
+        "webimage/server-talk": "dev-main"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://www.github.com/WebImage/ServerTalk"
+        }
+    ]
 }
