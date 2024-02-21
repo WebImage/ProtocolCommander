@@ -23,11 +23,11 @@ class MessageProtocol {
 	{
 		// Parse the command from the message received (format: CMD [data])
 		$command = Command::createFromString($message->getData());
-
+		/** @var CommandMessageHandlerInterface $handler */
 		$handler = isset($this->commands[$command->getName()]) ? $this->commands[$command->getName()] : null;
 
 		if ($handler === null) {
-			$connection->send('400 Invalid command ' . $command->getName());
+			$connection->write('400 Invalid command ' . $command->getName());
 			$connection->close();
 			return false;
 		}
